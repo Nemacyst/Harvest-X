@@ -19,17 +19,17 @@ async function refresh() {
   const s = await send("status");
   const el = $("status");
   if (!s) {
-    el.textContent = "Bitte öffne x.com/i/bookmarks und lade die Seite einmal neu (F5).";
+    el.textContent = "Please open your X bookmarks page and reload it once (F5).";
     return;
   }
-  const hint = s.onBookmarks ? "" : `\n(Hinweis: Seite ${s.path} – Start trotzdem möglich)`;
+  const hint = s.onBookmarks ? "" : `\n(Note: page ${s.path} – you can still start)`;
   const text = s.running
-    ? `Sammle … ${s.count} Bookmarks`
+    ? `Collecting … ${s.count} bookmarks`
     : lastExport
     ? lastExport
     : s.finished
-    ? `✓ Fertig: ${s.count} Bookmarks. Jetzt unten ein Format anklicken, um zu speichern.`
-    : `${s.count} Bookmarks gesammelt (gestoppt)`;
+    ? `✓ Done: ${s.count} bookmarks. Click a format below to save.`
+    : `${s.count} bookmarks collected (stopped)`;
   el.textContent = text + hint;
   ["csv", "json", "md"].forEach((id) =>
     $(id).classList.toggle("ready", s.finished && !s.running && !lastExport)
@@ -42,7 +42,7 @@ function csvEscape(v) {
 }
 
 function toCSV(items) {
-  const head = ["Name", "URL", "Autor", "Handle", "Datum", "Text", "Bilder", "Video"];
+  const head = ["Name", "URL", "Author", "Handle", "Date", "Text", "Images", "Video"];
   const rows = items.map((i) => [
     (i.text || i.url).slice(0, 80),
     i.url,
@@ -51,7 +51,7 @@ function toCSV(items) {
     i.date,
     i.text,
     i.images,
-    i.hasVideo ? "ja" : "",
+    i.hasVideo ? "yes" : "",
   ]);
   return "\ufeff" + [head, ...rows].map((r) => r.map(csvEscape).join(",")).join("\n");
 }
@@ -78,11 +78,11 @@ function download(name, content, mime) {
 async function exportAs(kind) {
   const r = await send("data");
   if (!r || !r.items.length) {
-    $("status").textContent = "Noch keine Daten – erst „Sammeln starten“.";
+    $("status").textContent = "No data yet – click “Start collecting” first.";
     return;
   }
   const stamp = new Date().toISOString().slice(0, 10);
-  lastExport = "✓ Heruntergeladen (siehe Download-Ordner)";
+  lastExport = "✓ Downloaded (check your Downloads folder)";
   if (kind === "csv") download(`x-bookmarks-${stamp}.csv`, toCSV(r.items), "text/csv;charset=utf-8");
   if (kind === "json") download(`x-bookmarks-${stamp}.json`, JSON.stringify(r.items, null, 2), "application/json");
   if (kind === "md") download(`x-bookmarks-${stamp}.md`, toMD(r.items), "text/markdown;charset=utf-8");

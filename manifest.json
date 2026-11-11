@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Harvest X",
   "version": "1.0.0",
-  "description": "Exportiert deine X-Lesezeichen als CSV, JSON oder Markdown.",
+  "description": "Exports your X bookmarks as CSV, JSON or Markdown.",
   "action": {
     "default_popup": "popup.html",
     "default_title": "Harvest X",

@@ -1,30 +1,32 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <style>
-    body { font: 14px system-ui, sans-serif; width: 280px; padding: 14px; margin: 0; }
+    html { color-scheme: dark; }
+    body { font: 14px system-ui, sans-serif; width: 280px; padding: 14px; margin: 0; background: #121a17; color: #e8f0ec; }
     h1 { font-size: 15px; margin: 0 0 10px; }
-    button { width: 100%; padding: 8px; margin: 3px 0; border: 0; border-radius: 6px; cursor: pointer; font-size: 13px; }
+    button { width: 100%; padding: 8px; margin: 3px 0; border: 0; border-radius: 6px; cursor: pointer; font-size: 13px; color: #e8f0ec; }
+    button:hover { filter: brightness(1.12); }
     .primary { background: #1d9bf0; color: #fff; }
     .stop { background: #f4212e; color: #fff; }
-    .dl { background: #eee; }
+    .dl { background: #26322d; color: #e8f0ec; }
     .ready { background: #00ba7c; color: #fff; font-weight: 600; }
-    #status { white-space: pre-line; margin: 8px 0; padding: 8px; background: #f6f6f6; border-radius: 6px; font-size: 13px; }
+    #status { white-space: pre-line; margin: 8px 0; padding: 8px; background: #1b2521; border: 1px solid #28352f; border-radius: 6px; font-size: 13px; }
     .row { display: flex; gap: 4px; }
   </style>
 </head>
 <body>
   <h1>Harvest X</h1>
-  <div id="status">Lade …</div>
-  <button class="primary" id="start">Sammeln starten</button>
-  <button class="stop" id="stop">Stoppen</button>
+  <div id="status">Loading …</div>
+  <button class="primary" id="start">Start collecting</button>
+  <button class="stop" id="stop">Stop</button>
   <div class="row">
     <button class="dl" id="csv">CSV</button>
     <button class="dl" id="json">JSON</button>
     <button class="dl" id="md">Markdown</button>
   </div>
-  <button class="dl" id="reset">Zurücksetzen</button>
+  <button class="dl" id="reset">Reset</button>
   <script src="popup.js"></script>
 </body>
 </html>
