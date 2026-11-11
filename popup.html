@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font: 14px system-ui, sans-serif; width: 280px; padding: 14px; margin: 0; }
+    h1 { font-size: 15px; margin: 0 0 10px; }
+    button { width: 100%; padding: 8px; margin: 3px 0; border: 0; border-radius: 6px; cursor: pointer; font-size: 13px; }
+    .primary { background: #1d9bf0; color: #fff; }
+    .stop { background: #f4212e; color: #fff; }
+    .dl { background: #eee; }
+    .ready { background: #00ba7c; color: #fff; font-weight: 600; }
+    #status { white-space: pre-line; margin: 8px 0; padding: 8px; background: #f6f6f6; border-radius: 6px; font-size: 13px; }
+    .row { display: flex; gap: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Harvest X</h1>
+  <div id="status">Lade …</div>
+  <button class="primary" id="start">Sammeln starten</button>
+  <button class="stop" id="stop">Stoppen</button>
+  <div class="row">
+    <button class="dl" id="csv">CSV</button>
+    <button class="dl" id="json">JSON</button>
+    <button class="dl" id="md">Markdown</button>
+  </div>
+  <button class="dl" id="reset">Zurücksetzen</button>
+  <script src="popup.js"></script>
+</body>
+</html>
