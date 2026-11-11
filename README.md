@@ -1,8 +1,11 @@
 # 🌾 Harvest X
 
-**A lightweight Chrome extension that exports your X (Twitter) bookmarks as CSV, JSON or Markdown.**
+**A lightweight Chrome extension that exports your X bookmarks as CSV, JSON or Markdown.**
 
 > Save your bookmarked posts locally – no more manual copying.
+
+[![Chrome](https://img.shields.io/badge/Chrome-Extension-blue?logo=googlechrome&style=for-the-badge)](https://chromewebstore.google.com/detail/harvest-x/pnigncjlbeiblkiblfknjdffmbckdnod)
+[![Brave](https://img.shields.io/badge/Brave-Extension-orange?logo=brave&style=for-the-badge)](https://chromewebstore.google.com/detail/harvest-x/pnigncjlbeiblkiblfknjdffmbckdnod)
 
 ---
 
@@ -23,14 +26,12 @@
 4. Click **Load unpacked** and select the **root folder** of this repository (where `manifest.json` is located).
 5. The extension will appear in the toolbar (pin it if needed).
 
-> **Tip:** The extension only works on `https://x.com/*` and `https://twitter.com/*`.
-
 ## 💻 Usage
 
 1. Open your bookmarks on X: [x.com/i/bookmarks](https://x.com/i/bookmarks)
 2. Click the Harvest X icon.
-3. Click **Sammeln starten** and let it scroll through your bookmarks.
-4. Click **Stoppen** when you want to stop early (or wait until it finishes automatically).
+3. Click **Start collecting** and let it scroll through your bookmarks.
+4. Click **Stop** when you want to stop early (or wait until it finishes automatically).
 5. Choose an export format: **CSV**, **JSON** or **Markdown**.
 6. The file will download to your Downloads folder.
 
@@ -49,11 +50,11 @@ Exports are generated entirely in the popup and downloaded via a Blob URL. No ex
 
 - Everything runs locally in your browser.
 - No data is collected, stored remotely, or transmitted.
-- The extension only has access to x.com / twitter.com.
+- The extension only has access to x.com
 
 ## 📸 Screenshot
 
-*(Add a screenshot of the popup here later)*
+![Harvest X collecting bookmarks](screenshots/harvest-x-01-collect.png)
 
 ## 📜 License
 
